@@ -24,7 +24,30 @@ const HomePage = () => {
           of bringing your idea to life, in the technical realm.
         </p>
       </div>
-      <SellNote side="left" image="/computer.png"/>
+      <SellNote side="left"
+       text="Web applications and mobile apps for businesses and individuals."
+       image="/help.png"
+       />
+      <SellNote side="right"
+       text="Responsive web design, your website should look good on mobile and on desktop or laptop."
+       image="/responsive.png"
+       />
+      <SellNote side="left"
+       text="Either built to your spcification or thorough planning complete to ensure I meet you desired outcomes."
+       image="/checklist.png"
+       />
+      <SellNote side="right"
+       text="Peace of mind that your hiring someone who does this everyday for a living!"
+       image="/work.png"
+       />
+      <SellNote side="left"
+       text="“Full Stack” as we say in tech world! from design and front end static pages all the way to more complex functionality and backend applications."
+       image="/design.png"
+       />
+      <SellNote side="right"
+       text="Do you need your apllication deployed aswell? No problem! I'll make sure that baby is live and operational!"
+       image="/database.png"
+       />
     </>
   )
 } 
