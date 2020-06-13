@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Maitree&display=swap" rel="stylesheet');
 
+body {
+  min-height: 100vh;
+}
+
 /* navigation */
 
 #navigation {
@@ -124,5 +128,22 @@
   text-align: center;
   font-family: 'Maitree', serif;
   font-size: 25px;
+}
+
+/* sell notes */
+
+.sell-note-image {
+  height: 140px;
+  width: 140px;
+  border-radius: 50%;
+  border: solid rgb(0, 56, 209) 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.sell-note-image img {
+  max-height: 60%;
+  max-width: 60%;
 }
 

@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import SellNote from "../components/SellNote"
 
 const HomePage = () => {
   return (
@@ -23,6 +24,7 @@ const HomePage = () => {
           of bringing your idea to life, in the technical realm.
         </p>
       </div>
+      <SellNote side="left" image="/computer.png"/>
     </>
   )
 } 
