@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 
 const TechTalkPage = () => {
   return (
-      <p>TechPage</p>
+      <h2>Technology</h2>
   )
 } 
 export default TechTalkPage

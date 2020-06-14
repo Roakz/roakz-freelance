@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 
 const PricesPage = () => {
   return (
-      <p>PricesPage</p>
+      <h2>Pricing</h2>
   )
 } 
 export default PricesPage

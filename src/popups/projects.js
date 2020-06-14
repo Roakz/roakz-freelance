@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 
 const ProjectsPage = () => {
   return (
-      <p>Projects Page</p>
+      <h2>Projects</h2>
   )
 } 
 export default ProjectsPage

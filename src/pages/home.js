@@ -2,15 +2,24 @@ import React, {Component} from 'react'
 import SellNote from "../components/SellNote"
 import Projects from '../popups/projects'
 import Prices from '../popups/prices'
+import Technology from '../popups/tech-talk'
+import Contact from '../popups/contact'
+
 
 const HomePage = (props) => {
+
 let innerPopupComponent
+
   switch (props.view) {
     case "Projects": innerPopupComponent = <Projects />
       break;
     case "Pricing": innerPopupComponent = <Prices />
       break;
+    case "Technology": innerPopupComponent = <Technology />
+      break;
+    case "Contact": innerPopupComponent = <Contact />
   }
+
   return (
     <>
       {(props.popUp && props.popUp == true) ?

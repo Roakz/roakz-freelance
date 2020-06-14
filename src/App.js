@@ -9,12 +9,12 @@ import Attributions from './components/Attributions'
 function App() {
 
   const [popUp, setPopUp] = useState(null)
-  // const [popView, setView] = useState("")
+  const [popView, setView] = useState("")
 
   function popUpController(e) {
+  setView(e.target.innerHTML)
   e.preventDefault()
-  popUp == true ? setPopUp(null) : setPopUp(true)
-  
+  popUp == true ? setPopUp(null) : setPopUp(true)  
 }
   // Switch was originally set up for multiple pages, ended up going with pop ups instead.
   // Left in for future expansion ease.
@@ -28,7 +28,7 @@ function App() {
       {/* Page routing */}
       <Switch>
         <Route exact path="/" >
-          {popUp ? <HomePage popUp={popUp} popUpController={popUpController} view={"Pricing"}/> : <HomePage />}
+          {popUp ? <HomePage popUp={popUp} popUpController={popUpController} view={popView}/> : <HomePage />}
         </Route>
       </Switch>
 
