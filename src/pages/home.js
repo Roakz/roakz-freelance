@@ -1,9 +1,30 @@
 import React, {Component} from 'react'
 import SellNote from "../components/SellNote"
+import Projects from '../popups/projects'
+import Prices from '../popups/prices'
 
-const HomePage = () => {
+const HomePage = (props) => {
+let innerPopupComponent
+  switch (props.view) {
+    case "Projects": innerPopupComponent = <Projects />
+      break;
+    case "Pricing": innerPopupComponent = <Prices />
+      break;
+  }
   return (
     <>
+      {(props.popUp && props.popUp == true) ?
+       <div id="popup-div">
+          <div id="popup-close">
+            <button onClick={props.popUpController}>
+              <p>X</p>
+            </button>
+          </div>
+          {innerPopupComponent}
+        </div>
+        :
+        ""
+        }
       <div id="home-page-header">
         <div id="home-header-content-container">
           <p>Web & mobile developer freelance</p>
@@ -16,6 +37,7 @@ const HomePage = () => {
           <h2>Rory Bell</h2>
         </div>
       </div>
+      
       <div id="journey">
         <p>
           Lets embark on this journey together !
@@ -24,6 +46,7 @@ const HomePage = () => {
           of bringing your idea to life, in the technical realm.
         </p>
       </div>
+
       <SellNote side="left"
        text="Web applications and mobile apps for businesses and individuals."
        image="/help.png"

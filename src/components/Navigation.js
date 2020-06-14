@@ -1,15 +1,14 @@
-import React, {Component} from 'react' 
-import {Link} from 'react-router-dom'
+import React, { Component } from 'react' 
 
-const Navigation = () => {
+const Navigation = (props) => {
+
     return (
       <div id="navigation">
-        <div id="navigation-link-container">
-          <div class="navigation-link"><Link to="/">Home</Link></div>
-          <div class="navigation-link"><Link to="projects">projects</Link></div>
-          <div class="navigation-link"><Link to="tech-talk">technology</Link></div>
-          <div class="navigation-link"><Link to="prices">pricing</Link></div>
-          <div class="navigation-link"><Link to="contact">contact</Link></div>
+        <div id="navigation-link-container">   
+          <div class="navigation-link"><a href="" onClick={props.popUpController}>Projects</a></div>
+          <div class="navigation-link"><a href="" onClick={props.popUpController}>Technology</a></div>
+          <div class="navigation-link"><a href="" onClick={props.popUpController}>Pricing</a></div>
+          <div class="navigation-link"><a href="" onClick={props.popUpController}>Contact</a></div>
         </div>
       </div>
     )

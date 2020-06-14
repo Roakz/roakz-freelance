@@ -1,44 +1,40 @@
-import React, {Component} from 'react'
+import React, {Component, useState} from 'react'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
 import HomePage from './pages/home'
-import ProjectPage from './pages/projects'
-import TechTalkPage from './pages/tech-talk'
-import ContactPage from './pages/contact'
-import PricesPage from './pages/prices'
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
+import Attributions from './components/Attributions'
 
 function App() {
+
+  const [popUp, setPopUp] = useState(null)
+  // const [popView, setView] = useState("")
+
+  function popUpController(e) {
+  e.preventDefault()
+  popUp == true ? setPopUp(null) : setPopUp(true)
+  
+}
+  // Switch was originally set up for multiple pages, ended up going with pop ups instead.
+  // Left in for future expansion ease.
   return (
     <Router>
       {/* navigation */}
       <div>
-        <Navigation />
+        <Navigation popUpController={popUpController}/>
       </div>
 
       {/* Page routing */}
       <Switch>
-      <Route exact path="/" >
-        <HomePage />
-      </Route>
-      <Route exact path="/projects" >
-        <ProjectPage />
-      </Route>
-      <Route exact path="/tech-talk" >
-        <TechTalkPage />
-      </Route>
-      <Route exact path="/prices" >
-        <PricesPage />
-      </Route>
-      <Route exact path="/contact" >
-        <ContactPage />
-      </Route>
+        <Route exact path="/" >
+          {popUp ? <HomePage popUp={popUp} popUpController={popUpController} view={"Pricing"}/> : <HomePage />}
+        </Route>
       </Switch>
 
-      {/* footer */}
-        <Footer />      
-    </Router>
+      < Footer />
+      < Attributions />
+    </Router>  
   );
 }
 
