@@ -1,6 +1,13 @@
-import React, {Component} from 'react'
+import React from 'react'
+import ReCAPTCHA from 'react-google-recaptcha'
 
 const ContactPage = () => {
+
+
+  function onChange(value) {
+    console.log("Captcha value:", value);
+  }
+
   return (
     <>
       <div id="inner-content">
@@ -10,7 +17,7 @@ const ContactPage = () => {
         </p>
         <p>Kindest regards, Rory Bell.</p>
         <div id="form-wrapper">
-          <form>
+          <form id="contact-form">
             <label>Name</label>
             <input type="text" name="name" />
 
@@ -34,7 +41,13 @@ const ContactPage = () => {
                 <label class="label-text-white" for="mobile">Mobile</label>
               </div>
             </div>
+            <button>submit</button>
           </form>
+          {/* Add some state to control the submit button appearing when the recapctha is verified */}
+          <ReCAPTCHA
+            sitekey={process.env.REACT_APP_GOOGLE_KEY}
+            onChange={onChange}
+          />
         </div>
       </div>
       </>
