@@ -23,12 +23,16 @@ const ContactPage = () => {
             </p>
             <textarea id="w3review" name="user-notes" rows="4" cols="50"></textarea>
 
-            <label>Prefered contact method?</label>
-            <div>
-              <input type="radio" id="email" name="age" value="30" />
-              <label for="email">Email</label>
-              <input type="radio" id="mobile" name="age" value="60" />
-              <label for="mobile">Mobile</label>
+            <label class="label-text-white">Prefered contact method?</label>
+            <div id="radio-buttons">
+              <div>
+                <input type="radio" id="email" name="age" value="30" />
+                <label class="label-text-white" for="email">Email</label>
+              </div>
+              <div>
+                <input type="radio" id="mobile" name="age" value="60" />
+                <label class="label-text-white" for="mobile">Mobile</label>
+              </div>
             </div>
           </form>
         </div>
