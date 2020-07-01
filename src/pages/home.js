@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import SellNote from "../components/SellNote"
 import Projects from '../popups/projects'
 import Prices from '../popups/prices'
@@ -13,16 +13,17 @@ let innerPopupComponent
   switch (props.view) {
     case "Projects": innerPopupComponent = <Projects />
       break;
-    case "Pricing": innerPopupComponent = <Prices />
+    case "Pricing": innerPopupComponent = <Prices popUpController={props.popUpController}/>
       break;
     case "Technology": innerPopupComponent = <Technology />
       break;
     case "Contact": innerPopupComponent = <Contact />
+      break
   }
 
   return (
     <>
-      {(props.popUp && props.popUp == true) ?
+      {(props.popUp == true) ?
        <div id="popup-div">
           <div id="popup-close">
             <button onClick={props.popUpController}>

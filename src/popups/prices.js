@@ -1,6 +1,8 @@
-import React, {Component} from 'react'
+import React from 'react'
 
-const PricesPage = () => {
+
+const PricesPage = (props) => {
+
   return (
     <div id="prices-outer-wrapper">
       <div id="prices-wrapper">
@@ -17,7 +19,7 @@ const PricesPage = () => {
           task. To ensure i can offer a fixed price that we are both happy with.
         </p>
 
-        <button>Request a qoute</button>
+        <button id="request-qoute" onClick={props.popUpController}>Request a qoute</button>
       </div> 
     </div>
     
