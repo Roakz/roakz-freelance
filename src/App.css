@@ -73,6 +73,7 @@ body {
   align-items: center;
   justify-content: space-evenly;
 }
+
 /* socials styling within header */
 #socials {
   padding-top: 20px;
@@ -238,7 +239,7 @@ body {
   margin-right: 2px;
 }
 #popup-close p {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin: 0;
 }
 #popup-div h2 {
@@ -252,8 +253,9 @@ body {
   width: 100%;
   height: 70%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 #form-wrapper form{
   width: 50%;
@@ -261,11 +263,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   border: solid black 2px;
   border-radius: 5px;
   background-image: url('/road.jpeg');
   background-position: center;
+}
+#form-wrapper form label {
+  margin-top: 15px;
 }
 #form-wrapper form input {
   font-size: 1.2rem;;
@@ -273,6 +278,12 @@ body {
 #form-wrapper form p {
   background-color: white;
   padding: 20px;
+}
+#form-wrapper form button {
+  margin-bottom: 10px;
+}
+.recaptcha {
+  margin-bottom: 10px;
 }
 #radio-buttons {
   width: 100%;
@@ -414,4 +425,19 @@ font-size: 4em;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #3d768a;
   font-family: 'Maitree', serif;
+}
+#curly-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  width: 300px;
+}
+#curly-right img {
+  max-height: 100%;
+  max-width: 100%;
+}
+#attribution {
+  font-size: 8px;
 }

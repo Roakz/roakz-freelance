@@ -1,11 +1,40 @@
-import React from 'react'
+import React, {useState} from 'react'
 import ReCAPTCHA from 'react-google-recaptcha'
 
 const ContactPage = () => {
 
+  const [verified, setVerified] = useState(null)
 
-  function onChange(value) {
-    console.log("Captcha value:", value);
+  function onChange(value) { 
+    fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${process.env.REACT_APP_OTHER}&response=${value}`)
+    .then(res => res.json())
+    .then(result => {
+      if (result.success == true) {
+        setVerified(true)
+      } else {
+        setVerified(false)
+      }
+    })
+    .then(result => {
+      setTimeout(function(){
+        setVerified(false)
+      }, 120000)
+    })
+    .catch(error => console.log(error))
+  }
+
+  let buttonOrRecaptcha
+  
+  if (verified == true) {
+    buttonOrRecaptcha = <button>submit</button>
+  } else {
+    buttonOrRecaptcha =
+    <div class="recaptcha">
+      <ReCAPTCHA
+        sitekey={process.env.REACT_APP_GOOGLE_KEY}
+        onChange={onChange}
+      />
+    </div>
   }
 
   return (
@@ -28,6 +57,7 @@ const ContactPage = () => {
               This section is for you to leave some notes about your project or any basic information you want to fill me in on.
               We can get into the nitty gritty when we touch base. Any information you provide here will be sent to me via email.
             </p>
+            
             <textarea id="w3review" name="user-notes" rows="4" cols="50"></textarea>
 
             <label class="label-text-white">Prefered contact method?</label>
@@ -41,16 +71,11 @@ const ContactPage = () => {
                 <label class="label-text-white" for="mobile">Mobile</label>
               </div>
             </div>
-            <button>submit</button>
+            {buttonOrRecaptcha}
           </form>
-          {/* Add some state to control the submit button appearing when the recapctha is verified */}
-          <ReCAPTCHA
-            sitekey={process.env.REACT_APP_GOOGLE_KEY}
-            onChange={onChange}
-          />
         </div>
       </div>
-      </>
+    </>
   )
 } 
 export default ContactPage

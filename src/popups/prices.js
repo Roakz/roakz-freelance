@@ -21,6 +21,7 @@ const PricesPage = (props) => {
 
         <button id="request-qoute" onClick={props.popUpController}>Request a qoute</button>
       </div> 
+      <div id="curly-right"><img src="/63503.jpg" /><p id="attribution">image provided by studiogstock from freepik</p></div>
     </div>
     
   )
