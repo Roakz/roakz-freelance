@@ -37,12 +37,12 @@ let innerPopupComponent
         }
       <div id="home-page-header">
         <div id="home-header-content-container">
-          <p>Web & mobile developer freelance</p>
+          <p>Freelance Web & Mobile Developer</p>
           <div id="avatar"></div>
           <div id="socials">
-            <div id="social-image-div-twitter"></div>
-            <div id="social-image-div-email"></div>
-            <div id="social-image-div-link"></div>
+            <a href="https://twitter.com/RoarzOnRails" target="_blank"><div id="social-image-div-twitter"></div></a>
+            <div id="social-image-div-email" data="Contact" onClick={props.popUpController}></div>
+            <a href="https://www.linkedin.com/in/roarzonrails/" target="_blank"><div id="social-image-div-link"></div></a>
           </div>
           <h2>Rory Bell</h2>
         </div>
@@ -53,7 +53,7 @@ let innerPopupComponent
           Lets embark on this journey together !
           Just tell me where you want to go !!
           let me navigate the technical challenges
-          of bringing your idea to life, in the technical realm.
+          of bringing your idea to life.
         </p>
       </div>
 
@@ -66,7 +66,7 @@ let innerPopupComponent
        image="/responsive.png"
        />
       <SellNote side="left"
-       text="Either built to your spcification or thorough planning complete to ensure I meet you desired outcomes."
+       text="Either built to your spcification or thorough planning will be complete to ensure I meet you desired outcomes."
        image="/checklist.png"
        />
       <SellNote side="right"

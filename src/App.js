@@ -11,14 +11,19 @@ function App() {
   const [popUp, setPopUp] = useState(false)
   const [popView, setView] = useState("")
 
-  function popUpController(e) {
+  function popUpController(e, optional) {
+    console.log(e.target.getAttribute('data'))
     e.preventDefault()
+    optional = optional ? optional : {}
     if (e.target.innerHTML == "Request a qoute"){
       setView("Contact")
       setPopUp(true)
     } else if (e.target.innerHTML == "X") {
       setView("")
       setPopUp(false)
+    } else if (e.target.getAttribute('data') == "Contact") {
+      setView("Contact")
+      setPopUp(true)
     } else {
       setView(e.target.innerHTML)
       setPopUp(true)
@@ -36,7 +41,7 @@ function App() {
       {/* Page routing */}
       <Switch>
         <Route exact path="/" >
-          {popUp ? <HomePage popUp={popUp} popUpController={popUpController} view={popView}/> : <HomePage />}
+          {popUp ? <HomePage popUp={popUp} popUpController={popUpController} view={popView}/> : <HomePage popUpController={popUpController}/>}
         </Route>
         <Redirect exact from="/reload" to="/" />
       </Switch>
