@@ -1,12 +1,22 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import SellNote from "../components/SellNote"
 import Projects from '../popups/projects'
 import Prices from '../popups/prices'
 import Technology from '../popups/tech-talk'
 import Contact from '../popups/contact'
 
-
 const HomePage = (props) => {
+ 
+  useEffect(() => {
+    let twitterDiv = document.getElementById('twitter-link') 
+    let linkdinDiv = document.getElementById('linkdin-link')
+    let emailDiv = document.getElementById('email-link')
+    twitterDiv.className += 'social-animation'
+    linkdinDiv.className += 'social-animation'
+    emailDiv.className += 'social-animation'
+    let heading = document.getElementById('heading')
+    heading.className += 'heading-animation'
+  })
 
 let innerPopupComponent
 
@@ -37,12 +47,12 @@ let innerPopupComponent
         }
       <div id="home-page-header">
         <div id="home-header-content-container">
-          <p>Freelance Web & Mobile Developer</p>
+          <p id="heading">Freelance Web & Mobile Developer</p>
           <div id="avatar"></div>
           <div id="socials">
-            <a href="https://twitter.com/RoarzOnRails" target="_blank"><div id="social-image-div-twitter"></div></a>
-            <div id="social-image-div-email" data="Contact" onClick={props.popUpController}></div>
-            <a href="https://www.linkedin.com/in/roarzonrails/" target="_blank"><div id="social-image-div-link"></div></a>
+            <a id="twitter-link" href="https://twitter.com/RoarzOnRails" target="_blank"><div id="social-image-div-twitter"></div></a>
+            <a id="email-link" onClick={props.popUpController}><div id="social-image-div-email" data="Contact"></div></a>
+            <a id="linkdin-link" href="https://www.linkedin.com/in/roarzonrails/" target="_blank"><div id="social-image-div-link"></div></a>
           </div>
           <h2>Rory Bell</h2>
         </div>

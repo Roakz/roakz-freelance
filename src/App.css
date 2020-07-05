@@ -31,9 +31,19 @@ body {
   justify-content: center;
   align-items: center;
   border-left: solid black 1px;
+  background-color: none;
 }
 .navigation-link a {
+  align-self: stretch;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
+  transition: background-color .5s ease-in;
+  background-color: none;
+  min-width: 100%;
+  min-height: 100%;
+  margin: 0;
 }
 .navigation-link a:visited {
   color: black;
@@ -93,6 +103,7 @@ body {
   background-repeat: no-repeat; 
   background-size: cover; 
   border-radius: 50%;
+  transition: all .2s ease-in-out;
 }
 #social-image-div-email {
   height:  35px;
@@ -103,6 +114,7 @@ body {
   background-size: cover; 
   border-radius: 50%;
   cursor: pointer;
+  transition: all .2s ease-in-out;
 }
 #social-image-div-link {
   height:  35px;
@@ -112,6 +124,7 @@ body {
   background-repeat: no-repeat; 
   background-size: cover; 
   border-radius: 50%;
+  transition: all .2s ease-in-out;
 }
 #journey {
   height: 100px;
@@ -148,6 +161,29 @@ body {
   justify-content: center;
   overflow: hidden;
   margin: 20px;
+}
+.sell-note-image :hover {
+  animation: dance 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+}
+@keyframes dance {
+
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+  
 }
 .sell-note-image img {
   max-height: 60%;
@@ -318,6 +354,9 @@ body {
 #inner-content textarea {
   max-width: 95%;
 }
+#inner-content input {
+  width: 50%;
+}
 
 /* technology */
 #tech-popup-wrapper {
@@ -440,4 +479,32 @@ font-size: 4em;
 }
 #attribution {
   font-size: 8px;
+}
+
+/* animations */
+.social-animation :hover{
+  transform: scale(1.3);
+}
+#nav-link-animation :hover {
+  background-color: black;
+  color: white;
+  animation-name: flash;
+	animation-duration: .3s; 
+}
+@keyframes flash {
+	0%, 50%, 100%{opacity: 1;}	
+	25%, 75% {opacity: 0;}
+}
+#nav-link-animation :active {
+  opacity: 0;
+}
+.heading-animation {
+  animation: heading 4s;
+}
+@keyframes heading {
+  0% {opacity: 0;}
+  25% {opacity: 0;}
+  50% {opacity: 1;}
+  75% {opacity: 0;}
+  100% {opacity: 1;}
 }

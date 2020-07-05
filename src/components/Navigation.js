@@ -1,6 +1,14 @@
-import React, { Component } from 'react' 
+import React, { useEffect } from 'react' 
+import { NavLink } from 'react-router-dom'
 
 const Navigation = (props) => {
+
+   useEffect(() => {
+     let navLink = document.querySelectorAll(".navigation-link")
+     navLink.forEach(element => {
+       element.setAttribute('id', 'nav-link-animation')
+     }); 
+   })
 
     return (
       <div id="navigation">

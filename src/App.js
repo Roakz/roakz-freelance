@@ -21,6 +21,7 @@ function App() {
     } else if (e.target.innerHTML == "X") {
       setView("")
       setPopUp(false)
+      window.location.reload()
     } else if (e.target.getAttribute('data') == "Contact") {
       setView("Contact")
       setPopUp(true)
