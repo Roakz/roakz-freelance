@@ -1,7 +1,12 @@
-import React from 'react'
-
-
+import React from "react"
+import {useEffect} from 'react'
+ 
 const PricesPage = (props) => {
+
+  useEffect(() => {
+    let button = document.getElementById('request-qoute')
+    button.className += 'qoute-animation'
+  })
 
   return (
     <div id="prices-outer-wrapper">

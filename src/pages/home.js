@@ -36,7 +36,7 @@ let innerPopupComponent
       {(props.popUp == true) ?
        <div id="popup-div">
           <div id="popup-close">
-            <button onClick={props.popUpController}>
+            <button class="close" onClick={props.popUpController}>
               <p>X</p>
             </button>
           </div>

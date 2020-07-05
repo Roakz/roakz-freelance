@@ -1,0 +1,63 @@
+/* socials styling within header */
+#socials {
+  padding-top: 20px;
+  height: 40px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#social-image-div-twitter {
+  height:  35px;
+  width: 35px;
+  background-image: url("/twitter.png"); 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
+  border-radius: 50%;
+  transition: all .2s ease-in-out;
+}
+#social-image-div-email {
+  height:  35px;
+  width: 35px;
+  background-image: url("/email.png"); 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+#social-image-div-link {
+  height:  35px;
+  width: 35px;
+  background-image: url("/linkdin.png"); 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
+  border-radius: 50%;
+  transition: all .2s ease-in-out;
+}
+#journey {
+  height: 100px;
+  border-bottom: solid black 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+#avatar {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background-image: url("/me-rough.jpg"); 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
+}
+#journey p {
+  text-align: center;
+  font-family: 'Maitree', serif;
+  font-size: 20px;
+}

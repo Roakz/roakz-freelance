@@ -1,0 +1,42 @@
+/* navigation */
+
+#navigation {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+#navigation-link-container {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  font-family: 'Maitree', serif;
+}
+.navigation-link {
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: solid black 1px;
+  background-color: none;
+}
+.navigation-link a {
+  align-self: stretch;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: background-color .5s ease-in;
+  background-color: none;
+  min-width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+.navigation-link a:visited {
+  color: black;
+}
