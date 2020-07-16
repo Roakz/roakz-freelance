@@ -26,10 +26,10 @@ const ContactPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
     let AWS = require('aws-sdk/dist/aws-sdk-react-native');
-    AWS.config.update({region: 'ap-southeast-2', accessKeyId: 'AKIAWHDCTM5NC3VU2KX3', secretAccessKey: 'laATdF0LJHvQiG/tq6P10Xiq9IwrqfQRi3p4ZVeY'})
+    AWS.config.update({region: 'ap-southeast-2', accessKeyId: 'Replace me', secretAccessKey: 'Replace me'})
     let params = {
        Message: `Name: ${document.getElementById("name").value}\nEmail: ${document.getElementById("email-input").value}\nMessage: ${document.getElementById("notes").value}`,
-       TopicArn: "arn:aws:sns:ap-southeast-2:427556038490:roakz-freelance" }
+       TopicArn: "Replace me" }
     let publishTextPromise = new AWS.SNS().publish(params).promise()
     publishTextPromise.then(data => console.log(data)).catch(e => console.log(e))
   }
