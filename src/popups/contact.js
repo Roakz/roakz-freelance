@@ -9,13 +9,13 @@ const ContactPage = () => {
     fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${process.env.REACT_APP_OTHER}&response=${value}`)
     .then(res => res.json())
     .then(result => {
-      if (result.success == true) {
+      if (result.success === true) {
         setVerified(true)
       } else {
         setVerified(false)
       }
     })
-    .then(result => {
+    .then(() => {
       setTimeout(function(){
         setVerified(false)
       }, 120000)
@@ -23,10 +23,22 @@ const ContactPage = () => {
     .catch(error => console.log(error))
   }
 
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    let AWS = require('aws-sdk/dist/aws-sdk-react-native');
+    AWS.config.update({region: 'ap-southeast-2', accessKeyId: 'AKIAWHDCTM5NC3VU2KX3', secretAccessKey: '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'})
+    let params = {
+       Message: `Name: ${document.getElementById("name").value}\nEmail: ${document.getElementById("email-input").value}\nMessage: ${document.getElementById("notes").value}`,
+       TopicArn: "arn:aws:sns:ap-southeast-2:427556038490:roakz-freelance" }
+    let publishTextPromise = new AWS.SNS().publish(params).promise()
+    publishTextPromise.then(data => console.log(data)).catch(e => console.log(e))
+  }
+  
+
   let buttonOrRecaptcha
   
   if (verified == true) {
-    buttonOrRecaptcha = <button>submit</button>
+    buttonOrRecaptcha = <button onClick={handleSubmit}>submit</button>
   } else {
     buttonOrRecaptcha =
     <div class="recaptcha">
@@ -48,17 +60,17 @@ const ContactPage = () => {
         <div id="form-wrapper">
           <form id="contact-form">
             <label>Name</label>
-            <input type="text" name="name" />
+            <input id="name" type="text" name="name" />
 
             <label>Email</label>
-            <input type="email" name="email" />
+            <input id="email-input" type="email" name="email" />
 
             <p>
               This section is for you to leave some notes about your project or any basic information you want to fill me in on.
               We can get into the nitty gritty when we touch base. Any information you provide here will be sent to me via email.
             </p>
             
-            <textarea id="w3review" name="user-notes" rows="4" cols="50"></textarea>
+            <textarea id="notes" name="user-notes" rows="4" cols="50"></textarea>
 
             <label class="label-text-white">Prefered contact method?</label>
             <div id="radio-buttons">

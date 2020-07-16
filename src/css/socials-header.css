@@ -61,3 +61,26 @@
   font-family: 'Maitree', serif;
   font-size: 20px;
 }
+
+@media only screen and (max-width: 600px) {
+  #heading {
+    margin: 0px;
+    text-align: center;
+  }
+  #home-header-content-container {
+    width: 100%;
+    height: 90%;
+  }
+  #home-header-content-container h2 {
+    font-size: 2rem;
+  }
+  #journey p {
+    padding: 10px;
+    margin: 0;
+    font-size: 15px;
+  }
+  #avatar {
+    height: 120px;
+    width: 120px;
+  }
+}

@@ -40,3 +40,12 @@
 .navigation-link a:visited {
   color: black;
 }
+
+@media only screen and (max-width: 600px) {
+  #navigation-link-container {
+    width: 100%;
+  }
+  .navigation-link {
+    border-left: 0;
+  }
+}

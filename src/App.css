@@ -22,11 +22,11 @@ body {
   background-color: black;
   color: white;
   animation-name: flash;
-	animation-duration: .3s; 
+	animation-duration: .2s; 
 }
 @keyframes flash {
-	0%, 50%, 100%{opacity: 1;}	
-	25%, 75% {opacity: 0;}
+	0%, 100%{opacity: 1;}	
+  50% {opacity: 0;}
 }
 #nav-link-animation :active {
   opacity: 0;

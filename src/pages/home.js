@@ -6,6 +6,8 @@ import Technology from '../popups/tech-talk'
 import Contact from '../popups/contact'
 
 const HomePage = (props) => {
+
+  let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
  
   useEffect(() => {
     let twitterDiv = document.getElementById('twitter-link') 
@@ -33,7 +35,7 @@ let innerPopupComponent
 
   return (
     <>
-      {(props.popUp == true) ?
+      {(props.popUp === true) ?
        <div id="popup-div">
           <div id="popup-close">
             <button class="close" onClick={props.popUpController}>
@@ -74,6 +76,7 @@ let innerPopupComponent
       <SellNote side="right"
        text="Responsive web design, your website should look good on mobile and on desktop or laptop."
        image="/responsive.png"
+       viewport={vw}
        />
       <SellNote side="left"
        text="Either built to your spcification or thorough planning will be complete to ensure I meet you desired outcomes."
@@ -82,6 +85,7 @@ let innerPopupComponent
       <SellNote side="right"
        text="Peace of mind that your hiring someone who does this everyday for a living!"
        image="/work.png"
+        viewport={vw}
        />
       <SellNote side="left"
        text="“Full Stack” as we say in tech world! from design and front end static pages all the way to more complex functionality and backend applications."
@@ -90,6 +94,7 @@ let innerPopupComponent
       <SellNote side="right"
        text="Do you need your apllication deployed aswell? No problem! I'll make sure that baby is live and operational!"
        image="/database.png"
+       viewport={vw}
        />
     </>
   )
