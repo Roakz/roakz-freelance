@@ -62,7 +62,38 @@
   font-size: 20px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 400px) {
+  #heading {
+    padding-bottom: 10px;
+  }
+  #socials {
+    padding-bottom: 10px;
+  }
+  #avatar {
+    max-height: 100px;
+    max-width: 100px;
+  }
+}
+
+@media only screen and (max-height: 500px ) {
+  #home-page-header {
+    height: 85vh;
+  }
+  #heading {
+    padding-bottom: 5px;
+  }
+}
+
+@media only screen and (max-height: 800px ) and (min-height: 500px){
+  #home-page-header {
+    height: 60vh;
+  }
+  #heading {
+    padding-bottom: 5px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
   #heading {
     margin: 0px;
     text-align: center;
