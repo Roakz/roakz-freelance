@@ -3,7 +3,7 @@ import React from 'react'
 const TechTalkPage = () => {
   return (
     <div id="tech-popup-wrapper">
-      <h2>Technology</h2>
+      <h2 id="technology">Technology</h2>
       <p>I have a tech stack for many different project types. From small static webpages to larger fullstack websites with a backend on them.
          I also use REACT native for developing cross platform mobile apps. For those that are interested here are some of the technologies I use regularly.
       </p>

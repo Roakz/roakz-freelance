@@ -52,7 +52,7 @@ const ContactPage = () => {
   return (
     <>
       <div id="inner-content">
-      <h2>Contact</h2>
+      <h2 id="contact">Contact</h2>
         <p>Thankyou for your interest in allowing me to undertake a project for you. Please fill in the below details
          and ill be in touch via your prefered contact method as soon as i can.
         </p>

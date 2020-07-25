@@ -11,7 +11,7 @@ const PricesPage = (props) => {
   return (
     <div id="prices-outer-wrapper">
       <div id="prices-wrapper">
-        <h2>Pricing</h2>
+        <h2 id="pricing">Pricing</h2>
         <p>
           Im glad you made it this far! As far as pricing goes it depends largely on your idea and what your trying to do.
           I.E how much time do I need to spend helping bring your idea to life. Small static websites, that dont require to much time, could range anywhere

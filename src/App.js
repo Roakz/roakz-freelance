@@ -15,7 +15,7 @@ function App() {
   let [longScroll, setLongScroll] = useState(null)
 
   useEffect(() => {
-  // Polling to check the screen dimensions constantly
+    // Polling to check the screen dimensions constantly so we can initiate long scroll when its to short or thin.
     const callback = () => {
       let vw = window.innerWidth
       let vh = window.innerHeight
@@ -32,6 +32,22 @@ function App() {
 
   function popUpController(e, optional) {
     e.preventDefault()
+    if (longScroll) {
+      setPopUp(false)
+      let linkTo 
+      
+      switch (e.target.innerHTML) {
+        case "Pricing": linkTo = "/#pricing"
+          break;
+        case "Technology": linkTo = "/#technology"
+          break;
+        case "Contact":  linkTo = "/#contact"
+          break
+      } 
+      window.location.replace(linkTo)
+      return
+    } 
+    
     optional = optional ? optional : {}
     if (e.target.innerHTML === "Request a qoute"){
       setView("Contact")
@@ -54,7 +70,7 @@ function App() {
     <Router>
       {/* navigation */}
       <div>
-        <Navigation popUpController={popUpController}/>
+        <Navigation popUpController={popUpController} longScroll={longScroll}/>
       </div>
 
       {/* Page routing */}
