@@ -37,11 +37,11 @@ const ContactPage = () => {
 
   let buttonOrRecaptcha
   
-  if (verified == true) {
+  if (verified === true) {
     buttonOrRecaptcha = <button onClick={handleSubmit}>submit</button>
   } else {
     buttonOrRecaptcha =
-    <div class="recaptcha">
+    <div className="recaptcha">
       <ReCAPTCHA
         sitekey={process.env.REACT_APP_GOOGLE_KEY}
         onChange={onChange}
@@ -72,15 +72,15 @@ const ContactPage = () => {
             
             <textarea id="notes" name="user-notes" rows="4" cols="50"></textarea>
 
-            <label class="label-text-white">Prefered contact method?</label>
+            <label className="label-text-white">Prefered contact method?</label>
             <div id="radio-buttons">
               <div>
                 <input type="radio" id="email" name="age" value="30" />
-                <label class="label-text-white" for="email">Email</label>
+                <label className="label-text-white" htmlFor="email">Email</label>
               </div>
               <div>
                 <input type="radio" id="mobile" name="age" value="60" />
-                <label class="label-text-white" for="mobile">Mobile</label>
+                <label className="label-text-white" htmlFor="mobile">Mobile</label>
               </div>
             </div>
             {buttonOrRecaptcha}

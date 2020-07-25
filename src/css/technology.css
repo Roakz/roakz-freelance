@@ -62,15 +62,3 @@ font-size: 4em;
   font-size: 4rem;
 }
 
-@media only screen and (max-height: 840px ){
-  .tech-note {
-    width: 95%;
-    justify-content: flex-start;
-  }
-  #tech-wrapper {
-    min-height: 90vh;
-  }
-  #tech-popup-wrapper {
-    min-height: 90vh;
-  }
-}

@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 
 const SellNote = (props) => {
   if (props.viewport < 500 && props.side === "right") {

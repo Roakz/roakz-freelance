@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { BrowserRouter as Router, Route, Switch, Redirect, Link} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import './App.css';
 import HomePage from './pages/home'
 import Navigation from './components/Navigation'
@@ -12,17 +12,16 @@ function App() {
   const [popView, setView] = useState("")
 
   function popUpController(e, optional) {
-    console.log(e.target.getAttribute('data'))
     e.preventDefault()
     optional = optional ? optional : {}
-    if (e.target.innerHTML == "Request a qoute"){
+    if (e.target.innerHTML === "Request a qoute"){
       setView("Contact")
       setPopUp(true)
-    } else if (e.target.innerHTML == "X") {
+    } else if (e.target.innerHTML === "X") {
       setView("")
       setPopUp(false)
       window.location.reload()
-    } else if (e.target.getAttribute('data') == "Contact") {
+    } else if (e.target.getAttribute('data') === "Contact") {
       setView("Contact")
       setPopUp(true)
     } else {

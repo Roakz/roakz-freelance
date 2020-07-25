@@ -57,9 +57,3 @@
   padding-left: 20px;
 }
 
-/* Work on this ... need to adjust popups based on height */
-@media only screen and (max-width: 420px) {
-  #popup-div {
-    min-height: 180vh;
-  }
-}

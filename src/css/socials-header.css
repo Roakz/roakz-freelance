@@ -75,7 +75,16 @@
   }
 }
 
-@media only screen and (max-height: 500px ) {
+@media only screen and (max-height: 299px ) {
+  #home-page-header {
+    height: 100vh;
+  }
+  #heading {
+    padding-bottom: 5px;
+  }
+}
+
+@media only screen and (min-height: 300px) and (max-height: 500px ) {
   #home-page-header {
     height: 85vh;
   }
@@ -93,7 +102,7 @@
   }
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 900px) {
   #heading {
     margin: 0px;
     text-align: center;
