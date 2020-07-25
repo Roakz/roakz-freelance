@@ -4,6 +4,7 @@ import Projects from '../popups/projects'
 import Prices from '../popups/prices'
 import Technology from '../popups/tech-talk'
 import Contact from '../popups/contact'
+import Top from '../components/top'
 
 const HomePage = (props) => {
 
@@ -85,8 +86,16 @@ let innerPopupComponent
        />
 
        {/* Bring on ye long scroll! */}
-       { props.longScroll ? <> <Technology /> <Prices /> <Contact /> </> : ""}
+       { props.longScroll ? 
+       <>
+        <Top />
+        <Technology />
+        <Top />
+        <Prices />
+        <Top />
+        <Contact />
+      </> : ""}
     </>
   )
 } 
-export default HomePage
+export default HomePage;

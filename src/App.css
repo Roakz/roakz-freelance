@@ -37,6 +37,15 @@ html {
 .heading-animation {
   animation: heading 4s;
 }
+.top-component {
+  width: 100%;
+  font-family: 'Maitree', serif;
+  font-weight: bold;
+  padding-left: 80%;
+}
+.top-component:visited{
+  color: black;
+}
 @keyframes heading {
   0% {opacity: 0;}
   25% {opacity: 0;}
