@@ -21,7 +21,7 @@
 .tech-note {
   width: 49%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
 }
 .tech-note-icon {
@@ -34,6 +34,7 @@
   justify-content: center;
   overflow: hidden;
   margin: 20px;
+  margin-left: 30%;
 }
 
 /* icons */
@@ -66,5 +67,9 @@ font-size: 4em;
   .tech-note{
     width: 100%;
     justify-content: start;
+  }
+  .tech-note-icon {
+    margin-left: 0;
+    margin: 30px;
   }
 }

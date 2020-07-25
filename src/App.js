@@ -21,6 +21,7 @@ function App() {
       let vh = window.innerHeight
 
       if (vw < 750 || vh < 900) {
+        setPopUp(false)
         setLongScroll(true)
       } else if (vw >= 750 || vh >= 900) {
         setLongScroll(false)
