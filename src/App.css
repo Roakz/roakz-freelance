@@ -13,6 +13,9 @@
 body {
   min-height: 100vh;
 }
+html {
+  max-height :100%;
+}
 
 /* animations */
 .social-animation :hover{

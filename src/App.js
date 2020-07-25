@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import './App.css';
 import HomePage from './pages/home'
@@ -10,6 +10,25 @@ function App() {
 
   const [popUp, setPopUp] = useState(false)
   const [popView, setView] = useState("")
+  let vw = window.innerWidth
+  let vh = window.innerHeight
+  let [longScroll, setLongScroll] = useState(null)
+
+  useEffect(() => {
+  // Polling to check the screen dimensions constantly
+    const callback = () => {
+      let vw = window.innerWidth
+      let vh = window.innerHeight
+
+      if (vw < 750 || vh < 900) {
+        setLongScroll(true)
+      } else if (vw >= 750 || vh >= 900) {
+        setLongScroll(false)
+      }
+      setTimeout(callback, 1000)
+    }
+    callback()
+  }, [vw, vh])
 
   function popUpController(e, optional) {
     e.preventDefault()
@@ -41,7 +60,7 @@ function App() {
       {/* Page routing */}
       <Switch>
         <Route exact path="/" >
-          {popUp ? <HomePage popUp={popUp} popUpController={popUpController} view={popView}/> : <HomePage popUpController={popUpController}/>}
+          {popUp ? <HomePage popUp={popUp} popUpController={popUpController} view={popView} longScroll={longScroll} vw={vw} /> : <HomePage popUpController={popUpController} longScroll={longScroll} vw={vw}/>}
         </Route>
         <Redirect exact from="/reload" to="/" />
       </Switch>

@@ -87,3 +87,10 @@
 #inner-content input {
   width: 50%;
 }
+
+@media only screen and (max-width: 750px) {
+  #form-wrapper form {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+}

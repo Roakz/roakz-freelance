@@ -14,6 +14,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: 30px;
 }
 #prices-wrapper p {
   border-top: solid black 1px;
@@ -55,4 +56,22 @@
 }
 #attribution {
   font-size: 8px;
+}
+
+@media only screen and (max-width: 830px) {
+  #prices-wrapper{
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  #prices-outer-wrapper {
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  #request-qoute {
+    margin-top: 30px;
+  }
+  #curly-right {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
 }
