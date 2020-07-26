@@ -55,7 +55,7 @@ const ContactPage = () => {
       <div id="inner-content">
       <h2 id="contact">Contact</h2>
         <p>Thankyou for your interest in allowing me to undertake a project for you. Please fill in the below details
-         and ill be in touch via your prefered contact method as soon as i can.
+         and i'll be in touch via your preferred contact method as soon as I can.
         </p>
         <p>Kindest regards, Rory Bell.</p>
         <div id="form-wrapper">
@@ -73,7 +73,7 @@ const ContactPage = () => {
             
             <textarea id="notes" name="user-notes" rows="4" cols="50"></textarea>
 
-            <label className="label-text-white">Prefered contact method?</label>
+            <label className="label-text-white">Preferred contact method?</label>
             <div id="radio-buttons">
               <div>
                 <input type="radio" id="email" name="age" value="30" />

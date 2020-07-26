@@ -67,11 +67,11 @@ let innerPopupComponent
        viewport={props.vw}
        />
       <SellNote side="left"
-       text="Either built to your spcification or thorough planning will be complete to ensure I meet you desired outcomes."
+       text="Either built to your specification or thorough planning will be complete to ensure I meet your desired outcomes."
        image="/checklist.png"
        />
       <SellNote side="right"
-       text="Peace of mind that your hiring someone who does this everyday for a living!"
+       text="Peace of mind that you're hiring someone who does this everyday for a living!"
        image="/work.png"
         viewport={props.vw}
        />
@@ -80,7 +80,7 @@ let innerPopupComponent
        image="/design.png"
        />
       <SellNote side="right"
-       text="Do you need your apllication deployed aswell? No problem! I'll make sure that baby is live and operational!"
+       text="Do you need your application deployed as well? No problem! I'll make sure that baby is live and operational!"
        image="/database.png"
        viewport={props.vw}
        />
