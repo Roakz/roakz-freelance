@@ -33,10 +33,10 @@ function App() {
 
   function popUpController(e, optional) {
     e.preventDefault()
+    
     if (longScroll) {
       setPopUp(false)
       let linkTo 
-      
       switch (e.target.innerHTML) {
         case "Pricing": linkTo = "/#pricing"
           break;

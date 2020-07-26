@@ -91,7 +91,7 @@ let innerPopupComponent
         <Top />
         <Technology />
         <Top />
-        <Prices />
+        <Prices longScroll={props.longScroll}/>
         <Top />
         <Contact />
       </> : ""}

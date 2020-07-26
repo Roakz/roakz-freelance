@@ -8,6 +8,12 @@ const PricesPage = (props) => {
     button.className += 'qoute-animation'
   })
 
+  const longScrollClick = () => {
+    window.location.replace("/#contact")
+  }
+
+  let event = props.longScroll === true ? longScrollClick : props.popUpController
+
   return (
     <div id="prices-outer-wrapper">
       <div id="prices-wrapper">
@@ -22,9 +28,8 @@ const PricesPage = (props) => {
         <p>
           I will maintain the upmost transparancey with you, as my client, from the beggining to the end. This is why a qoute is required for each specific
           project. This ensures I can offer a fixed price that we are both happy with.
-        </p>
-
-        <button id="request-qoute" onClick={props.popUpController}>Request a qoute</button>
+        </p>        
+        <button id="request-qoute" onClick={event}>Request a qoute</button>
       </div> 
       <div id="curly-right"><img alt="piggy bank" src="/63503.jpg" /><p id="attribution">image provided by studiogstock from freepik</p></div>
     </div>
