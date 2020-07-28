@@ -8,8 +8,14 @@ import Top from '../components/top'
 
 const HomePage = (props) => {
 
-let innerPopupComponent
+  const longScrollClick = () => {
+    window.location.replace("/#contact")
+  }
 
+  let event = props.longScroll === true ? longScrollClick : props.popUpController
+
+  let innerPopupComponent
+  
   switch (props.view) {
     case "Projects": innerPopupComponent = <Projects />
       break;
@@ -41,7 +47,7 @@ let innerPopupComponent
           <div id="avatar"></div>
           <div id="socials">
             <a className="social-animation" id="twitter-link" href="https://twitter.com/RoarzOnRails" target="_blank" rel="noopener noreferrer"><div id="social-image-div-twitter"></div></a>
-            <a className="social-animation" id="email-link" onClick={props.popUpController}><div id="social-image-div-email" data="Contact"></div></a>
+            <a className="social-animation" id="email-link" onClick={event}><div id="social-image-div-email" data="Contact"></div></a>
             <a className="social-animation" id="linkdin-link" href="https://www.linkedin.com/in/roarzonrails/" target="_blank" rel="noopener noreferrer"><div id="social-image-div-link"></div></a>
           </div>
           <h2>Rory Bell</h2>
