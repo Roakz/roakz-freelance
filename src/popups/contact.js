@@ -26,13 +26,16 @@ const ContactPage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    let AWS = require('aws-sdk/dist/aws-sdk-react-native');
-    AWS.config.update({region: 'ap-southeast-2', accessKeyId: 'Replace me', secretAccessKey: 'Replace me'})
-    let params = {
-       Message: `Name: ${document.getElementById("name").value}\nEmail: ${document.getElementById("email-input").value}\nMessage: ${document.getElementById("notes").value}`,
-       TopicArn: "Replace me" }
-    let publishTextPromise = new AWS.SNS().publish(params).promise()
-    publishTextPromise.then(data => console.log(data)).catch(e => console.log(e))
+    fetch('https://x47fbxuhyg.execute-api.ap-southeast-2.amazonaws.com/Prod/submit', {
+      method: 'post',
+      body: JSON.stringify({
+        "name": "Rory",
+        "phone": "0467938478",
+        "email": "foo@bar.com",
+        "description" : "Build me a website please.",
+        "preferance" : "email"
+      })
+    }).then(res => { return res.json() }).then(data => console.log(data)).catch(e => console.log(e))
   }
   
 
