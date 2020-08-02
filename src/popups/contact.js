@@ -82,8 +82,6 @@ const ContactPage = (props) => {
   return (
     <>
       <div id="inner-content">
-        {props.flash === true && message === "Your form has been submitted!" ? <Flash message={message} type="success!"/> : ""}
-        {props.flash === true && message === "We are experiencing technical difficulties. Please try again later." ? <Flash message={message} /> : ""}
       <h2 id="contact">Contact</h2>
         <p>Thankyou for your interest in allowing me to undertake a project for you. Please fill in the below details
          and i'll be in touch via your preferred contact method as soon as I can.
@@ -117,6 +115,8 @@ const ContactPage = (props) => {
             </div>
             {buttonOrRecaptcha}
           </form>
+          {props.flash === true && message === "Your form has been submitted!" ? <Flash message={message} type="success!" /> : ""}
+          {props.flash === true && message === "We are experiencing technical difficulties. Please try again later." ? <Flash message={message} /> : ""}
         </div>
       </div>
     </>

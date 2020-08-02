@@ -1,6 +1,6 @@
 #flash {
     width: 100%;
-    position: absolute;
+    /* position: absolute; */
     top: 5%;
     background-color: white;
     font-family: 'Maitree', serif;
@@ -8,4 +8,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
 }
