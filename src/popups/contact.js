@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import ReCAPTCHA from 'react-google-recaptcha'
+import Flash from '../components/Flash'
 
-const ContactPage = () => {
+const ContactPage = (props) => {
 
   const [verified, setVerified] = useState(null)
   const [preferrance, setpreferrance] = useState(null)
+  const [message, setMessage] = useState("")
 
   const radioCheck = (value) => {
     value.target.id === "mobile" ? setpreferrance("mobile") : setpreferrance("email")
@@ -46,18 +48,20 @@ const ContactPage = () => {
       preferance: preferrance
     }
 
-    validate_contact(params)
+    // validate_contact(params)
 
     fetch('https://x47fbxuhyg.execute-api.ap-southeast-2.amazonaws.com/Prod/submit', {
       method: 'post',
-      body: JSON.stringify({
-        "name": "Rory",
-        "phone": "0467938478",
-        "email": "foo@bar.com",
-        "description" : "Build me a website please.",
-        "preferance" : "email"
-      })
-    }).then(res => { return res.json() }).then(data => console.log(data)).catch(e => console.log(e))
+      body: JSON.stringify(params)
+    }).then(res => { return res.json() }).then(data => {
+      if (data.message === "success!") {
+        props.setFlash(true)
+        setMessage("Your form has been submitted!")
+      } else {
+        props.setFlash(true)
+        setMessage("We are experiencing technical difficulties. Please try again later.")
+      }
+    }).catch(e => console.log("fail"))
   }
   
 
@@ -69,7 +73,7 @@ const ContactPage = () => {
     buttonOrRecaptcha =
     <div className="recaptcha">
       <ReCAPTCHA
-        sitekey="6LcF7asZAAAAANKUbeHOh0V47QV9JlleGIU9cKqX"
+        sitekey="6LdtO7YZAAAAAEHTw1uIDqBOh5s0CfB5936bHoQC"
         onChange={onChange}
       />
     </div>
@@ -78,6 +82,8 @@ const ContactPage = () => {
   return (
     <>
       <div id="inner-content">
+        {props.flash === true && message === "Your form has been submitted!" ? <Flash message={message} type="success!"/> : ""}
+        {props.flash === true && message === "We are experiencing technical difficulties. Please try again later." ? <Flash message={message} /> : ""}
       <h2 id="contact">Contact</h2>
         <p>Thankyou for your interest in allowing me to undertake a project for you. Please fill in the below details
          and i'll be in touch via your preferred contact method as soon as I can.

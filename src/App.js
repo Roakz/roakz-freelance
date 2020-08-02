@@ -32,6 +32,7 @@ function App() {
   }, [vw, vh])
 
   function popUpController(e, optional) {
+
     e.preventDefault()
     
     if (longScroll) {
@@ -54,6 +55,8 @@ function App() {
       setView("Contact")
       setPopUp(true)
     } else if (e.target.innerHTML === "X") {
+      console.log(optional)
+      console.log(optional.close)
       setView("")
       setPopUp(false)
       window.location.reload()

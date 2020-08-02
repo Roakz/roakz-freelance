@@ -1,0 +1,11 @@
+#flash {
+    width: 100%;
+    position: absolute;
+    top: 5%;
+    background-color: white;
+    font-family: 'Maitree', serif;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

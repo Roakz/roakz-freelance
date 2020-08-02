@@ -1,12 +1,14 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import SellNote from "../components/SellNote"
 import Projects from '../popups/projects'
 import Prices from '../popups/prices'
 import Technology from '../popups/tech-talk'
 import Contact from '../popups/contact'
 import Top from '../components/top'
-
+import Flash from '../components/Flash'
 const HomePage = (props) => {
+
+  const [flash, setFlash] = useState(false)
 
   const longScrollClick = () => {
     window.location.replace("/#contact")
@@ -23,7 +25,7 @@ const HomePage = (props) => {
       break;
     case "Technology": innerPopupComponent = <Technology />
       break;
-    case "Contact": innerPopupComponent = <Contact />
+    case "Contact": innerPopupComponent = <Contact setFlash={setFlash} flash={flash} longScroll={props.longScroll} popUpController={props.popUpController}/>
       break
   }
 
@@ -99,7 +101,7 @@ const HomePage = (props) => {
         <Top />
         <Prices longScroll={props.longScroll}/>
         <Top />
-        <Contact />
+        <Contact setFlash={setFlash} flash={flash} longScroll={props.longScroll} popUpController={props.popUpController}/>
       </> : ""}
     </>
   )
