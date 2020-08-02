@@ -1,12 +1,25 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import ReCAPTCHA from 'react-google-recaptcha'
 
 const ContactPage = () => {
 
   const [verified, setVerified] = useState(null)
+  const [preferrance, setpreferrance] = useState(null)
+
+  const radioCheck = (value) => {
+    value.target.id === "mobile" ? setpreferrance("mobile") : setpreferrance("email")
+  }
+
+  const validate_contact = (params) => {
+    // validations!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    console.log(params)
+  }
 
   function onChange(value) { 
-    fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${process.env.REACT_APP_OTHER}&response=${value}`)
+    fetch(`https://x47fbxuhyg.execute-api.ap-southeast-2.amazonaws.com/Prod/recaptcha`, {
+      method: 'post',
+      body: JSON.stringify({"value": value})
+    })
     .then(res => res.json())
     .then(result => {
       if (result.success === true) {
@@ -25,6 +38,16 @@ const ContactPage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    
+    let params = {
+      name: document.getElementById("name").value,
+      email: document.getElementById("email-input").value,
+      description: document.getElementById("notes").value,
+      preferance: preferrance
+    }
+
+    validate_contact(params)
+
     fetch('https://x47fbxuhyg.execute-api.ap-southeast-2.amazonaws.com/Prod/submit', {
       method: 'post',
       body: JSON.stringify({
@@ -46,7 +69,7 @@ const ContactPage = () => {
     buttonOrRecaptcha =
     <div className="recaptcha">
       <ReCAPTCHA
-        sitekey={process.env.REACT_APP_GOOGLE_KEY}
+        sitekey="6LcF7asZAAAAANKUbeHOh0V47QV9JlleGIU9cKqX"
         onChange={onChange}
       />
     </div>
@@ -78,11 +101,11 @@ const ContactPage = () => {
             <label className="label-text-white">Preferred contact method?</label>
             <div id="radio-buttons">
               <div>
-                <input type="radio" id="email" name="age" value="30" />
+                <input type="radio" id="email" name="age" value="email" onChange={radioCheck} />
                 <label className="label-text-white" htmlFor="email">Email</label>
               </div>
               <div>
-                <input type="radio" id="mobile" name="age" value="60" />
+                <input type="radio" id="mobile" name="age" value="phone" onChange={radioCheck}/>
                 <label className="label-text-white" htmlFor="mobile">Mobile</label>
               </div>
             </div>
