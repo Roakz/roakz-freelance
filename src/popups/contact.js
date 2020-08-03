@@ -1,20 +1,29 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import ReCAPTCHA from 'react-google-recaptcha'
 import Flash from '../components/Flash'
 
 const ContactPage = (props) => {
 
   const [verified, setVerified] = useState(null)
-  const [preferrance, setpreferrance] = useState(null)
   const [message, setMessage] = useState("")
 
-  const radioCheck = (value) => {
-    value.target.id === "mobile" ? setpreferrance("mobile") : setpreferrance("email")
-  }
-
   const validate_contact = (params) => {
-    // validations!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    console.log(params)
+    let errors = []
+
+    if (! params.name) {
+      errors.push("Please provide a name") 
+    } 
+    if (! /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(params.email)){
+      errors.push("A valid email address is required")
+    }
+    if (errors.length > 0) {
+      props.setFlash(true)
+      setMessage(errors.join(", "))
+      return false
+    } else {
+      props.setFlash(false)
+      return true
+    }
   }
 
   function onChange(value) { 
@@ -45,26 +54,26 @@ const ContactPage = (props) => {
       name: document.getElementById("name").value,
       email: document.getElementById("email-input").value,
       description: document.getElementById("notes").value,
-      preferance: preferrance
     }
-
-    // validate_contact(params)
-
-    fetch('https://x47fbxuhyg.execute-api.ap-southeast-2.amazonaws.com/Prod/submit', {
-      method: 'post',
-      body: JSON.stringify(params)
-    }).then(res => { return res.json() }).then(data => {
-      if (data.message === "success!") {
-        props.setFlash(true)
-        setMessage("Your form has been submitted!")
-      } else {
+  
+    if (validate_contact(params)){
+      fetch('https://x47fbxuhyg.execute-api.ap-southeast-2.amazonaws.com/Prod/submit', {
+        method: 'post',
+        body: JSON.stringify(params)
+      }).then(res => { return res.json() }).then(data => {
+        if (data.message === "success!") {
+          props.setFlash(true)
+          setMessage("Your form has been submitted!")
+        } 
+      }).catch(e => {
         props.setFlash(true)
         setMessage("We are experiencing technical difficulties. Please try again later.")
-      }
-    }).catch(e => console.log("fail"))
+      })
+    } else {
+      return
+    } 
   }
   
-
   let buttonOrRecaptcha
   
   if (verified === true) {
@@ -102,21 +111,11 @@ const ContactPage = (props) => {
             
             <textarea id="notes" name="user-notes" rows="4" cols="50"></textarea>
 
-            <label className="label-text-white">Preferred contact method?</label>
-            <div id="radio-buttons">
-              <div>
-                <input type="radio" id="email" name="age" value="email" onChange={radioCheck} />
-                <label className="label-text-white" htmlFor="email">Email</label>
-              </div>
-              <div>
-                <input type="radio" id="mobile" name="age" value="phone" onChange={radioCheck}/>
-                <label className="label-text-white" htmlFor="mobile">Mobile</label>
-              </div>
-            </div>
             {buttonOrRecaptcha}
           </form>
           {props.flash === true && message === "Your form has been submitted!" ? <Flash message={message} type="success!" /> : ""}
-          {props.flash === true && message === "We are experiencing technical difficulties. Please try again later." ? <Flash message={message} /> : ""}
+          {props.flash === true && message !== "Your form has been submitted!" ? <Flash message={message} /> : ""}
+          {/* {props.flash === true && message !== "We are experiencing technical difficulties. Please try again later." ? <Flash message={message} /> : ""} */}
         </div>
       </div>
     </>
