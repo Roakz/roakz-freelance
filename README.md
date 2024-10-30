@@ -1,6 +1,6 @@
 # Roakz Freelance
 
-www.rorybellfreelance.com
+This website is no longer hosted. But it gives an idea of some things iv played around with. So ill leave it here for now.
 
 ![Roakz freelance Homepage](./public/freelance.png)
 
